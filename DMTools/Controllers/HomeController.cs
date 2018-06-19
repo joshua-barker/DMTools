@@ -13,7 +13,7 @@ namespace DMTools.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Reference()
         {
             ViewBag.Message = "Your application description page.";
 
