@@ -7,6 +7,8 @@ namespace DMTools.Models
 {
     public class Skills
     {
+        public int SkillsId { get; set; }
+
         // Strength Skills
         public bool HasAthleticsProficiency { get; set; }
         public int AthleticsModifier { get; set; }

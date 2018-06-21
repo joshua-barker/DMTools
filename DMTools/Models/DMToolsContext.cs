@@ -1,6 +1,7 @@
 using System;
 using System.Data.Entity;
 using System.Linq;
+using DMTools.Enums;
 
 namespace DMTools.Models
 {
@@ -19,7 +20,11 @@ namespace DMTools.Models
         }
 
         public virtual DbSet<Monster> Monsters { get; set; }
-        //public DbSet<Equipment> Equipments { get; set; }
+        public DbSet<Equipment> Equipments { get; set; }
         //public DbSet<Encounter> Encounters { get; set; }
+
+        public DbSet<SavingThrows> SavingThrows { get; set; }
+        public DbSet<Senses> Senses { get; set; }
+        public DbSet<Skills> Skills { get; set; }
     }
 }

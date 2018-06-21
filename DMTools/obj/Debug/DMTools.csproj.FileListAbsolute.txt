@@ -80,3 +80,7 @@ C:\Repos\DMTools\DMTools\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Repos\DMTools\DMTools\obj\Debug\DMTools.csprojResolveAssemblyReference.cache
 C:\Repos\DMTools\DMTools\obj\Debug\DMTools.dll
 C:\Repos\DMTools\DMTools\obj\Debug\DMTools.pdb
+C:\Repos\DMTools\DMTools\obj\Debug\DMTools.Migrations.InitialCreate.resources
+C:\Repos\DMTools\DMTools\obj\Debug\DMTools.csproj.GenerateResource.Cache
+C:\Repos\DMTools\DMTools\obj\Debug\DMTools.Migrations.SecondaryCreate.resources
+C:\Repos\DMTools\DMTools\obj\Debug\DMTools.Migrations.AddProficiencyBonus.resources

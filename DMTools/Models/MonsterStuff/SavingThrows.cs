@@ -7,6 +7,7 @@ namespace DMTools.Models
 {
     public class SavingThrows
     {
+        public int SavingThrowsId { get; set; }
         public bool HasStrengthSavingThrow { get; set; }
         public int StrengthSavingThrowModifier { get; set; }
         public bool HasDexteritySavingThrow { get; set; }
@@ -19,7 +20,6 @@ namespace DMTools.Models
         public int WisdomSavingThrowModifier { get; set; }
         public bool HasCharismaSavingThrow { get; set; }
         public int CharismaSavingThrowModifier { get; set; }
-
 
 
     }

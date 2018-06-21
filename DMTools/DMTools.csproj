@@ -80,6 +80,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -198,22 +200,53 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MonstersController.cs" />
+    <Compile Include="Enums\Alignments.cs" />
     <Compile Include="Enums\Races.cs" />
+    <Compile Include="Enums\Sizes.cs" />
+    <Compile Include="Enums\Species.cs" />
+    <Compile Include="Enums\Types.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806202154512_InitialCreate.cs" />
+    <Compile Include="Migrations\201806202154512_InitialCreate.Designer.cs">
+      <DependentUpon>201806202154512_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806210307362_SecondaryCreate.cs" />
+    <Compile Include="Migrations\201806210307362_SecondaryCreate.Designer.cs">
+      <DependentUpon>201806210307362_SecondaryCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806210327313_Add-Proficiency-Bonus.cs" />
+    <Compile Include="Migrations\201806210327313_Add-Proficiency-Bonus.Designer.cs">
+      <DependentUpon>201806210327313_Add-Proficiency-Bonus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Enemies.cs" />
-    <Compile Include="Models\Friendly.cs" />
+    <Compile Include="Models\DMToolsContext.cs" />
+    <Compile Include="Models\MonsterStuff\Enemies.cs" />
+    <Compile Include="Models\MonsterStuff\Equipment.cs" />
+    <Compile Include="Models\MonsterStuff\Friendly.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\NPC.cs" />
+    <Compile Include="Models\MonsterStuff\Monster.cs" />
+    <Compile Include="Models\MonsterStuff\SavingThrows.cs" />
+    <Compile Include="Models\MonsterStuff\Senses.cs" />
+    <Compile Include="Models\MonsterStuff\Skills.cs" />
+    <Compile Include="Models\PlayerGroups\Group.cs" />
+    <Compile Include="Models\PlayerGroups\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Main.css">
+      <DependentUpon>Main.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Main.min.css">
+      <DependentUpon>Main.css</DependentUpon>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -225,7 +258,16 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\_Variables.scss" />
+    <Content Include="Content\Main.scss" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <Content Include="Content\_Site.scss" />
+    <Content Include="Content\_Layout.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\CustomScripts\tabbed-menu.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -271,6 +313,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Monsters\Create.cshtml" />
+    <Content Include="Views\Monsters\Delete.cshtml" />
+    <Content Include="Views\Monsters\Details.cshtml" />
+    <Content Include="Views\Monsters\Edit.cshtml" />
+    <Content Include="Views\Monsters\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -282,6 +329,17 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201806202154512_InitialCreate.resx">
+      <DependentUpon>201806202154512_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806210307362_SecondaryCreate.resx">
+      <DependentUpon>201806210307362_SecondaryCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806210327313_Add-Proficiency-Bonus.resx">
+      <DependentUpon>201806210327313_Add-Proficiency-Bonus.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -317,7 +375,9 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets'))" />
   </Target>
+  <Import Project="..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets" Condition="Exists('..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

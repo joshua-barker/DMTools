@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using DMTools.Enums;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DMTools.Models
 {
@@ -13,6 +14,7 @@ namespace DMTools.Models
         public int Health { get; set; }
         public int ArmorClass { get; set; }
         public int Speed { get; set; }
+        public int ProficiencyBonus { get; set; }
         public double ChallengeRating { get; set; }
         public bool IsLegendary { get; set; }
         public int Strength { get; set; }
@@ -26,8 +28,18 @@ namespace DMTools.Models
         public Types Type { get; set; }
         public Species Species { get; set; }
         public Alignments Alignment { get; set; }
+
+        [ForeignKey("SavingThrows")]
+        public int SavingThrowsId { get; set; }
         public SavingThrows SavingThrows { get; set; }
+        [ForeignKey("Skills")]
+        public int SkillsId { get; set; }
         public Skills Skills { get; set; }
+        [ForeignKey("Senses")]
+        public int SensesId { get; set; }
         public Senses Senses { get; set; }
+
+
+        public ICollection<Equipment> Equipment { get; set; }
     }
 }

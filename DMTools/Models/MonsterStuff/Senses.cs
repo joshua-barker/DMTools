@@ -7,6 +7,7 @@ namespace DMTools.Models
 {
     public class Senses
     {
+        public int SensesId { get; set; }
         public bool HasBlindSight { get; set; }
         public bool HasDarkVision { get; set; }
         public bool HasTremorSense { get; set; }
