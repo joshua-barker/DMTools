@@ -21,6 +21,26 @@ namespace DMTools.Models
         public bool HasCharismaSavingThrow { get; set; }
         public int CharismaSavingThrowModifier { get; set; }
 
+        public static SavingThrows CalculateSavingThrowsModifiers(Monster monster)
+        {
+            SavingThrows savingThrows = new SavingThrows();
 
+            if (monster.SavingThrows != null)
+            {
+                savingThrows = monster.SavingThrows;
+            }
+
+            if (monster.SavingThrows.HasStrengthSavingThrow)
+            {
+                savingThrows.StrengthSavingThrowModifier = monster.AbilityModifiers.StrengthModifier + monster.ProficiencyBonus;
+            }
+            else
+            {
+                savingThrows.StrengthSavingThrowModifier = monster.AbilityModifiers.StrengthModifier;
+            }
+
+
+            return savingThrows;
+        }
     }
 }

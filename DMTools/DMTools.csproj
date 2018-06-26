@@ -224,8 +224,9 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DMToolsContext.cs" />
+    <Compile Include="Models\MonsterStuff\AbilityModifiers.cs" />
     <Compile Include="Models\MonsterStuff\Enemies.cs" />
-    <Compile Include="Models\MonsterStuff\Equipment.cs" />
+    <Compile Include="Models\Equipment\Equipment.cs" />
     <Compile Include="Models\MonsterStuff\Friendly.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -237,6 +238,7 @@
     <Compile Include="Models\PlayerGroups\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="UtilityClasses\MonsterHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />

@@ -12,6 +12,7 @@ namespace DMTools.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public int Health { get; set; }
+        public int Level { get; set; }
         public int ArmorClass { get; set; }
         public int Speed { get; set; }
         public int ProficiencyBonus { get; set; }
@@ -29,16 +30,21 @@ namespace DMTools.Models
         public Species Species { get; set; }
         public Alignments Alignment { get; set; }
 
+        [ForeignKey("AbilityModifiers")]
+        public int AbilityModifiersId { get; set; }
+        public AbilityModifiers AbilityModifiers { get; set; }
+
         [ForeignKey("SavingThrows")]
         public int SavingThrowsId { get; set; }
         public SavingThrows SavingThrows { get; set; }
+
         [ForeignKey("Skills")]
         public int SkillsId { get; set; }
         public Skills Skills { get; set; }
+
         [ForeignKey("Senses")]
         public int SensesId { get; set; }
         public Senses Senses { get; set; }
-
 
         public ICollection<Equipment> Equipment { get; set; }
     }

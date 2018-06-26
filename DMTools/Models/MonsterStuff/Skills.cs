@@ -54,5 +54,177 @@ namespace DMTools.Models
         public int PerformanceModifier { get; set; }
         public bool HasPersuasionProficiency { get; set; }
         public int PersuasionModifier { get; set; }
+
+        public static Skills CalculateSkillsModifiers(Monster monster)
+        {
+            Skills skills = new Skills();
+            int strength = monster.AbilityModifiers.StrengthModifier;
+            int dexterity = monster.AbilityModifiers.DexterityModifier;
+            int intelligence = monster.AbilityModifiers.IntelligenceModifier;
+            int wisdom = monster.AbilityModifiers.WisdomModifier;
+            int charisma = monster.AbilityModifiers.CharismaModifier;
+            int proficiency = monster.ProficiencyBonus;
+
+            if (monster.Skills != null)
+            {
+                skills = monster.Skills;
+            }
+
+            // Strength Skill
+            if (skills.HasAthleticsProficiency)
+            {
+                skills.AthleticsModifier = strength + proficiency;
+            }
+            else
+            {
+                skills.AthleticsModifier = strength;
+            }
+
+            // Dexterity Skills
+            if (skills.HasAthleticsProficiency)
+            {
+                skills.AthleticsModifier = dexterity + proficiency;
+            }
+            else
+            {
+                skills.AthleticsModifier = dexterity;
+            }
+            if (skills.HasSleightOfHandProficiency)
+            {
+                skills.SleightOfHandModifier = dexterity + proficiency;
+            }
+            else
+            {
+                skills.SleightOfHandModifier = dexterity;
+            }
+            if (skills.HasStealthProficiency)
+            {
+                skills.StealthModifier = dexterity + proficiency;
+            }
+            else
+            {
+                skills.StealthModifier = dexterity;
+            }
+
+            // Intelligence Skills
+            if (skills.HasArcanaProficiency)
+            {
+                skills.ArcanaModifier = intelligence + proficiency;
+            }
+            else
+            {
+                skills.ArcanaModifier = intelligence;
+            }
+            if (skills.HasHistoryProficiency)
+            {
+                skills.HistoryModifer = intelligence + proficiency;
+            }
+            else
+            {
+                skills.HistoryModifer = intelligence;
+            }
+            if (skills.HasInvestigationProficiency)
+            {
+                skills.InvestigationModifier = intelligence + proficiency;
+            }
+            else
+            {
+                skills.InvestigationModifier = intelligence;
+            }
+            if (skills.HasNatureProficiency)
+            {
+                skills.NatureModifier = intelligence + proficiency;
+            }
+            else
+            {
+                skills.NatureModifier = intelligence;
+            }
+            if (skills.HasReligionProficiency)
+            {
+                skills.ReligionModifier = intelligence + proficiency;
+            }
+            else
+            {
+                skills.ReligionModifier = intelligence;
+            }
+
+            // Wisdom Skills
+            if (skills.HasAnimalHandlingProficiency)
+            {
+                skills.AnimalHandlingModifier = wisdom + proficiency;
+            }
+            else
+            {
+                skills.AnimalHandlingModifier = wisdom;
+            }
+            if (skills.HasInsightProficiency)
+            {
+                skills.InsightModifier = wisdom + proficiency;
+            }
+            else
+            {
+                skills.InsightModifier = wisdom;
+            }
+            if (skills.HasMedicineProficiency)
+            {
+                skills.MedicineModifier = wisdom + proficiency;
+            }
+            else
+            {
+                skills.MedicineModifier = wisdom;
+            }
+            if (skills.HasPerceptionProficiency)
+            {
+                skills.PerceptionModifier = wisdom + proficiency;
+            }
+            else
+            {
+                skills.PerceptionModifier = wisdom;
+            }
+            if (skills.HasSurvialProficiency)
+            {
+                skills.SurvivalModifier = wisdom + proficiency;
+            }
+            else
+            {
+                skills.SurvivalModifier = wisdom;
+            }
+
+            // Charisma Skills
+            if (skills.HasDeceptionProficiency)
+            {
+                skills.DeceptionModifier = charisma + proficiency;
+            }
+            else
+            {
+                skills.DeceptionModifier = charisma;
+            }
+            if (skills.HasIntimidationProficiency)
+            {
+                skills.IntimidationModifier = charisma + proficiency;
+            }
+            else
+            {
+                skills.IntimidationModifier = charisma;
+            }
+            if (skills.HasPerformanceProficiency)
+            {
+                skills.PerformanceModifier = charisma + proficiency;
+            }
+            else
+            {
+                skills.PerformanceModifier = charisma;
+            }
+            if (skills.HasPersuasionProficiency)
+            {
+                skills.PersuasionModifier = charisma + proficiency;
+            }
+            else
+            {
+                skills.PersuasionModifier = charisma;
+            }
+
+            return skills;
+        }
     }
 }

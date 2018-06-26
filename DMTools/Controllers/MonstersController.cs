@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DMTools.Models;
+using DMTools.UtilityClasses;
 
 namespace DMTools.Controllers
 {
@@ -50,6 +51,7 @@ namespace DMTools.Controllers
         {
             if (ModelState.IsValid)
             {
+                MonsterHelper.CalculateMonsterStats(monster);
                 db.Monsters.Add(monster);
                 db.SaveChanges();
                 return RedirectToAction("Index");
