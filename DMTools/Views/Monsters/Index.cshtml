@@ -15,7 +15,7 @@
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Health)
+                @Html.DisplayNameFor(model => model.MaxHealth)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ArmorClass)
@@ -40,12 +40,12 @@
 
         @foreach (var item in Model)
         {
-            <tr>
+            <tr class="data-row">
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Health)
+                    @Html.DisplayFor(modelItem => item.MaxHealth)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ArmorClass)
@@ -71,8 +71,36 @@
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id })
                 </td>
             </tr>
+            <tr>
+                <td colspan="9" class="table-slide">
+                    <div class="table-details-pane">
+                        <p class="details-header">@item.Name: @item.Race - @item.Type - @item.Species : @item.ExperienceForKilling XP</p>
+                        <ul class="col-xs-12 col-md-6">
+                            <li><p>Description: @item.Description | Level: @item.Level | Size: @item.Size | Alignment: @item.Alignment</p></li>
+                            <li><p>STR: @item.Strength (@item.AbilityModifiers.StrengthModifier) | DEX: @item.Dexterity (@item.AbilityModifiers.DexterityModifier) | CON: @item.Constitution (@item.AbilityModifiers.ConstitutionModifier) | INT: @item.Intelligence (@item.AbilityModifiers.IntelligenceModifier) | WIS: @item.Wisdom (@item.AbilityModifiers.WisdomModifier) | CHAR: @item.Charisma (@item.AbilityModifiers.CharismaModifier) </p></li>
+                        </ul>
+                        <ul class="col-xs-12 col-md-6">
+                            <li>Is Legendary: @item.IsLegendary</li>
+                            <li>
+                                Equipment:
+                                <ul>
+                                    @foreach (var equipment in @item.Equipment)
+                                    {
+                                        <li>@equipment.Name: @equipment.Description</li>
+                                    }
+                                </ul>
+                            </li>
+                        </ul>
+                        <p class="details-closer">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("View Full Details", "Details", new { id = item.Id })
+                        </p>                        
+                    </div>
+                </td>
+            </tr>
         }
 
     </table>
+
 </div>
 

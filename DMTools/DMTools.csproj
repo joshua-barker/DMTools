@@ -202,6 +202,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MonstersController.cs" />
     <Compile Include="Enums\Alignments.cs" />
+    <Compile Include="Enums\EquipmentType.cs" />
     <Compile Include="Enums\Races.cs" />
     <Compile Include="Enums\Sizes.cs" />
     <Compile Include="Enums\Species.cs" />
@@ -221,13 +222,17 @@
     <Compile Include="Migrations\201806210327313_Add-Proficiency-Bonus.Designer.cs">
       <DependentUpon>201806210327313_Add-Proficiency-Bonus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806281409285_FleshOutMonstersAndOther.cs" />
+    <Compile Include="Migrations\201806281409285_FleshOutMonstersAndOther.Designer.cs">
+      <DependentUpon>201806281409285_FleshOutMonstersAndOther.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DMToolsContext.cs" />
     <Compile Include="Models\MonsterStuff\AbilityModifiers.cs" />
-    <Compile Include="Models\MonsterStuff\Enemies.cs" />
+    <Compile Include="Models\MonsterStuff\Enemy.cs" />
     <Compile Include="Models\Equipment\Equipment.cs" />
-    <Compile Include="Models\MonsterStuff\Friendly.cs" />
+    <Compile Include="Models\MonsterStuff\NPC.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MonsterStuff\Monster.cs" />
@@ -341,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806210327313_Add-Proficiency-Bonus.resx">
       <DependentUpon>201806210327313_Add-Proficiency-Bonus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806281409285_FleshOutMonstersAndOther.resx">
+      <DependentUpon>201806281409285_FleshOutMonstersAndOther.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

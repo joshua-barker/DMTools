@@ -30,7 +30,7 @@ namespace DMTools.Models
                 savingThrows = monster.SavingThrows;
             }
 
-            if (monster.SavingThrows.HasStrengthSavingThrow)
+            if (savingThrows.HasStrengthSavingThrow)
             {
                 savingThrows.StrengthSavingThrowModifier = monster.AbilityModifiers.StrengthModifier + monster.ProficiencyBonus;
             }
@@ -38,7 +38,46 @@ namespace DMTools.Models
             {
                 savingThrows.StrengthSavingThrowModifier = monster.AbilityModifiers.StrengthModifier;
             }
-
+            if (savingThrows.HasDexteritySavingThrow)
+            {
+                savingThrows.DexteritySavingThrowModifier = monster.AbilityModifiers.DexterityModifier + monster.ProficiencyBonus;
+            }
+            else
+            {
+                savingThrows.DexteritySavingThrowModifier = monster.AbilityModifiers.DexterityModifier;
+            }
+            if (savingThrows.HasConstitutionSavingThrow)
+            {
+                savingThrows.ConstitutionSavingThrowModifier = monster.AbilityModifiers.ConstitutionModifier + monster.ProficiencyBonus;
+            }
+            else
+            {
+                savingThrows.ConstitutionSavingThrowModifier = monster.AbilityModifiers.ConstitutionModifier;
+            }
+            if (savingThrows.HasIntelligenceSavingThrow)
+            {
+                savingThrows.IntelligenceSavingThrowModifier = monster.AbilityModifiers.IntelligenceModifier + monster.ProficiencyBonus;
+            }
+            else
+            {
+                savingThrows.IntelligenceSavingThrowModifier = monster.AbilityModifiers.IntelligenceModifier;
+            }
+            if (savingThrows.HasWisdomSavingThrow)
+            {
+                savingThrows.WisdomSavingThrowModifier = monster.AbilityModifiers.WisdomModifier + monster.ProficiencyBonus;
+            }
+            else
+            {
+                savingThrows.WisdomSavingThrowModifier = monster.AbilityModifiers.WisdomModifier;
+            }
+            if (savingThrows.HasCharismaSavingThrow)
+            {
+                savingThrows.CharismaSavingThrowModifier = monster.AbilityModifiers.CharismaModifier + monster.ProficiencyBonus;
+            }
+            else
+            {
+                savingThrows.CharismaSavingThrowModifier = monster.AbilityModifiers.CharismaModifier;
+            }
 
             return savingThrows;
         }

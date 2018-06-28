@@ -5,7 +5,7 @@ using System.Web;
 
 namespace DMTools.Models
 {
-    public class Enemies : Monster
+    public class Enemy : Monster
     {
     }
 }

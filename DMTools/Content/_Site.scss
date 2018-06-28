@@ -33,3 +33,31 @@
     border: 1px solid #ccc;
     border-top: none;
 }
+
+.data-row:hover {
+    background-color: #DDD;
+    cursor: pointer;
+}
+
+.table-details-pane {
+    background-color: #DDD;
+    padding: 15px;
+    float: left;
+    width: 100%;
+
+    .details-header {
+        font-weight: bold;
+        text-decoration: underline;
+        text-align: center;
+    }
+
+
+
+    ul {
+        list-style-type: square;
+    }
+}
+
+.details-closer {
+    float: right;
+}

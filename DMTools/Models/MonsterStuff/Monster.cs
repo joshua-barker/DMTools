@@ -9,9 +9,23 @@ namespace DMTools.Models
 {
     public class Monster
     {
+        public Monster()
+        {
+            AbilityModifiers = new AbilityModifiers();
+            SavingThrows = new SavingThrows();
+            Skills = new Skills();
+            Senses = new Senses();
+            Equipment = new HashSet<Equipment>();
+
+        }
+
         public int Id { get; set; }
         public string Name { get; set; }
-        public int Health { get; set; }
+        public string Description { get; set; }
+        public string Backstory { get; set; }
+        public int ExperienceForKilling { get; set; }
+        public int MaxHealth { get; set; }
+        public int CurrentHealth { get; set; }
         public int Level { get; set; }
         public int ArmorClass { get; set; }
         public int Speed { get; set; }
