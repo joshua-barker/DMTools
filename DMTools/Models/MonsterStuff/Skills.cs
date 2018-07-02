@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.ComponentModel;
 
 namespace DMTools.Models
 {
@@ -11,48 +9,66 @@ namespace DMTools.Models
 
         // Strength Skills
         public bool HasAthleticsProficiency { get; set; }
+        [DisplayName("Athletics Modifier")]
         public int AthleticsModifier { get; set; }
 
         // Dexterity Skills
         public bool HasAcrobaticsProficiency { get; set; }
+        [DisplayName("Acrobatics Modifier")]
         public int AcrobaticsModifier { get; set; }
         public bool HasSleightOfHandProficiency { get; set; }
+        [DisplayName("Sleight of Hand Modifier")]
         public int SleightOfHandModifier { get; set; }
         public bool HasStealthProficiency { get; set; }
+        [DisplayName("Stealth Modifier")]
         public int StealthModifier { get; set; }
 
         // Intelligence Skills
         public bool HasArcanaProficiency { get; set; }
+        [DisplayName("Arcana Modifier")]
         public int ArcanaModifier { get; set; }
         public bool HasHistoryProficiency { get; set; }
+        [DisplayName("History Modifier")]
         public int HistoryModifer { get; set; }
         public bool HasInvestigationProficiency { get; set; }
+        [DisplayName("Investigation Modifier")]
         public int InvestigationModifier { get; set; }
         public bool HasNatureProficiency { get; set; }
+        [DisplayName("Nature Modifier")]
         public int NatureModifier { get; set; }
         public bool HasReligionProficiency { get; set; }
+        [DisplayName("Religion Modifier")]
         public int ReligionModifier { get; set; }
 
         // Wisdom Skills
         public bool HasAnimalHandlingProficiency { get; set; }
+        [DisplayName("Animal Handling Modifier")]
         public int AnimalHandlingModifier { get; set; }
         public bool HasInsightProficiency { get; set; }
+        [DisplayName("Insight Modifier")]
         public int InsightModifier { get; set; }
         public bool HasMedicineProficiency { get; set; }
+        [DisplayName("Medicine Modifier")]
         public int MedicineModifier { get; set; }
         public bool HasPerceptionProficiency { get; set; }
+        [DisplayName("Perception Modifier")]
         public int PerceptionModifier { get; set; }
         public bool HasSurvialProficiency { get; set; }
+        [DisplayName("Survival Modifier")]
         public int SurvivalModifier { get; set; }
 
         // Charisma
         public bool HasDeceptionProficiency { get; set; }
+        [DisplayName("Deception Modifier")]
         public int DeceptionModifier { get; set; }
         public bool HasIntimidationProficiency { get; set; }
+        [DisplayName("Intimidation Modifier")]
         public int IntimidationModifier { get; set; }
         public bool HasPerformanceProficiency { get; set; }
+        [DisplayName("Performance Modifier")]
         public int PerformanceModifier { get; set; }
         public bool HasPersuasionProficiency { get; set; }
+        [DisplayName("Persuasion Modifier")]
         public int PersuasionModifier { get; set; }
 
         public static Skills CalculateSkillsModifiers(Monster monster)

@@ -1,18 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.ComponentModel;
 
 namespace DMTools.Models
 {
     public class AbilityModifiers
     {
         public int AbilityModifiersId { get; set; }
+        [DisplayName("Strength Modifier")]
         public int StrengthModifier { get; set; }
+        [DisplayName("Dexterity Modifier")]
         public int DexterityModifier { get; set; }
+        [DisplayName("Constitution Modifier")]
         public int ConstitutionModifier { get; set; }
+        [DisplayName("Intelligence Modifier")]
         public int IntelligenceModifier { get; set; }
+        [DisplayName("Wisdom Modifier")]
         public int WisdomModifier { get; set; }
+        [DisplayName("Charisma Modifier")]
         public int CharismaModifier { get; set; }
 
         public static AbilityModifiers CalculateAbilityModifiers(Monster monster)

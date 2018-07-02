@@ -24,9 +24,16 @@ $(function () {
     $("table").click(function (event) {
         event.stopPropagation();
         var $target = $(event.target);
+        if ($target.hasClass("no-click"))
+        {
+            return;
+        }
+        console.log($target);
         if ($target.closest("td").attr("colspan") > 1) {
             $target.slideUp();
-        } else {
+        }
+        else
+        {
             $target.closest("tr").next().find("div").slideToggle();
         }
     });

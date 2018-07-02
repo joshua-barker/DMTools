@@ -9,7 +9,7 @@
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
-    <table class="table">
+    <table class="table table-striped">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
@@ -65,7 +65,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Species)
                 </td>
-                <td>
+                <td class="no-click">
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                     @Html.ActionLink("Details", "Details", new { id = item.Id }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id })
@@ -75,6 +75,7 @@
                 <td colspan="9" class="table-slide">
                     <div class="table-details-pane">
                         <p class="details-header">@item.Name: @item.Race - @item.Type - @item.Species : @item.ExperienceForKilling XP</p>
+                        <p>@item.AbilityModifiersId = @item.AbilityModifiers.AbilityModifiersId</p>
                         <ul class="col-xs-12 col-md-6">
                             <li><p>Description: @item.Description | Level: @item.Level | Size: @item.Size | Alignment: @item.Alignment</p></li>
                             <li><p>STR: @item.Strength (@item.AbilityModifiers.StrengthModifier) | DEX: @item.Dexterity (@item.AbilityModifiers.DexterityModifier) | CON: @item.Constitution (@item.AbilityModifiers.ConstitutionModifier) | INT: @item.Intelligence (@item.AbilityModifiers.IntelligenceModifier) | WIS: @item.Wisdom (@item.AbilityModifiers.WisdomModifier) | CHAR: @item.Charisma (@item.AbilityModifiers.CharismaModifier) </p></li>

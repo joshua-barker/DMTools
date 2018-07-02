@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using DMTools.Enums;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DMTools.Models.PlayerGroups
+namespace DMTools.Models
 {
     public class Player
     {

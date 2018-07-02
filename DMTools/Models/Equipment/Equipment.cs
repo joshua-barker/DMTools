@@ -1,4 +1,5 @@
-﻿using DMTools.Enums;
+﻿using System.ComponentModel;
+using DMTools.Enums;
 
 namespace DMTools.Models
 {
@@ -7,7 +8,9 @@ namespace DMTools.Models
         public int EquipmentId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        [DisplayName("Magical")]
         public bool IsMagical { get; set; }
+        [DisplayName("Equipment Type")]
         public EquipmentType EquipmentType { get; set; }
     }
 }

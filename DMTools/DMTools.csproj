@@ -198,6 +198,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MonstersController.cs" />
@@ -226,9 +227,14 @@
     <Compile Include="Migrations\201806281409285_FleshOutMonstersAndOther.Designer.cs">
       <DependentUpon>201806281409285_FleshOutMonstersAndOther.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806292150237_AddGroupsPlayersAndModifyAbilityModifiers.cs" />
+    <Compile Include="Migrations\201806292150237_AddGroupsPlayersAndModifyAbilityModifiers.Designer.cs">
+      <DependentUpon>201806292150237_AddGroupsPlayersAndModifyAbilityModifiers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DMToolsContext.cs" />
+    <Compile Include="Models\Equipment\Weapon.cs" />
     <Compile Include="Models\MonsterStuff\AbilityModifiers.cs" />
     <Compile Include="Models\MonsterStuff\Enemy.cs" />
     <Compile Include="Models\Equipment\Equipment.cs" />
@@ -273,6 +279,7 @@
     </None>
     <Content Include="Content\_Site.scss" />
     <Content Include="Content\_Layout.scss" />
+    <Content Include="Content\_Grid.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\CustomScripts\tabbed-menu.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -325,6 +332,11 @@
     <Content Include="Views\Monsters\Details.cshtml" />
     <Content Include="Views\Monsters\Edit.cshtml" />
     <Content Include="Views\Monsters\Index.cshtml" />
+    <Content Include="Views\Groups\Create.cshtml" />
+    <Content Include="Views\Groups\Delete.cshtml" />
+    <Content Include="Views\Groups\Details.cshtml" />
+    <Content Include="Views\Groups\Edit.cshtml" />
+    <Content Include="Views\Groups\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -349,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806281409285_FleshOutMonstersAndOther.resx">
       <DependentUpon>201806281409285_FleshOutMonstersAndOther.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806292150237_AddGroupsPlayersAndModifyAbilityModifiers.resx">
+      <DependentUpon>201806292150237_AddGroupsPlayersAndModifyAbilityModifiers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

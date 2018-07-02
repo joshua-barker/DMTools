@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using DMTools.Enums;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel;
 
 namespace DMTools.Models
 {
@@ -23,14 +21,21 @@ namespace DMTools.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public string Backstory { get; set; }
+        [DisplayName("Experience for Killing")]
         public int ExperienceForKilling { get; set; }
+        [DisplayName("Max Health")]
         public int MaxHealth { get; set; }
+        [DisplayName("Current Health")]
         public int CurrentHealth { get; set; }
         public int Level { get; set; }
+        [DisplayName("Armor Class")]
         public int ArmorClass { get; set; }
         public int Speed { get; set; }
+        [DisplayName("Proficiency Bonus")]
         public int ProficiencyBonus { get; set; }
+        [DisplayName("Challenge Rating")]
         public double ChallengeRating { get; set; }
+        [DisplayName("Is Legendary")]
         public bool IsLegendary { get; set; }
         public int Strength { get; set; }
         public int Dexterity { get; set; }

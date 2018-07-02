@@ -7,116 +7,110 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DMTools.Models;
-using DMTools.UtilityClasses;
 
 namespace DMTools.Controllers
 {
-    public class MonstersController : Controller
+    public class GroupsController : Controller
     {
         private DMToolsContext db = new DMToolsContext();
 
-        // GET: Monsters
+        // GET: Groups
         public ActionResult Index()
         {
-            var monsters = db.Monsters
-                .Include(m => m.AbilityModifiers)
-                .Include(m => m.SavingThrows)
-                    .ToList();
-            return View(monsters);
+            return View(db.Groups.ToList());
         }
 
-        // GET: Monsters/Details/5
+        // GET: Groups/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Monster monster = db.Monsters.Find(id);
-            if (monster == null)
+            Group group = db.Groups.Find(id);
+            if (group == null)
             {
                 return HttpNotFound();
             }
-            return View(monster);
+            return View(group);
         }
 
-        // GET: Monsters/Create
+        // GET: Groups/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Monsters/Create
+        // POST: Groups/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Description,Backstory,ExperienceForKilling,MaxHealth,CurrentHealth,Level,ArmorClass,Speed,ProficiencyBonus,ChallengeRating,IsLegendary,Strength,Dexterity,Constitution,Intelligence,Wisdom,Charisma,Size,Race,Type,Species,Alignment,AbilityModifiers,SavingThrows,Skills,Senses")] Monster monster)
+        public ActionResult Create([Bind(Include = "GroupId,GroupName")] Group group)
         {
             if (ModelState.IsValid)
             {
-                MonsterHelper.CalculateMonsterStats(monster);
-                db.Monsters.Add(monster);
+                db.Groups.Add(group);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(monster);
+            return View(group);
         }
 
-        // GET: Monsters/Edit/5
+        // GET: Groups/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Monster monster = db.Monsters.Find(id);
-            if (monster == null)
+            Group group = db.Groups.Find(id);
+            if (group == null)
             {
                 return HttpNotFound();
             }
-            return View(monster);
+            return View(group);
         }
 
-        // POST: Monsters/Edit/5
+        // POST: Groups/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Health,ArmorClass,Speed,ChallengeRating,IsLegendary,Strength,Dexterity,Constitution,Intelligence,Wisdom,Charisma,Size,Race,Type,Species,Alignment,SavingThrows,Skills,Senses")] Monster monster)
+        public ActionResult Edit([Bind(Include = "GroupId,GroupName")] Group group)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(monster).State = EntityState.Modified;
+                db.Entry(group).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(monster);
+            return View(group);
         }
 
-        // GET: Monsters/Delete/5
+        // GET: Groups/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Monster monster = db.Monsters.Find(id);
-            if (monster == null)
+            Group group = db.Groups.Find(id);
+            if (group == null)
             {
                 return HttpNotFound();
             }
-            return View(monster);
+            return View(group);
         }
 
-        // POST: Monsters/Delete/5
+        // POST: Groups/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Monster monster = db.Monsters.Find(id);
-            db.Monsters.Remove(monster);
+            Group group = db.Groups.Find(id);
+            db.Groups.Remove(group);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

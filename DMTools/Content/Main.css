@@ -25,6 +25,16 @@ textarea {
   .navbar-light a {
     color: inherit; }
 
+.grid-container {
+  max-width: 100%;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 150px 150px 150px; }
+  .grid-container .grid-header {
+    grid-column: 1 / -1; }
+  .grid-container .grid-panel {
+    border: 1px solid black; }
+
 /*This one should always be at the end of the list*/
 /* Style the tab */
 .tab {
@@ -63,6 +73,7 @@ textarea {
 
 .table-details-pane {
   background-color: #DDD;
+  border: 1px solid black;
   padding: 15px;
   float: left;
   width: 100%; }
