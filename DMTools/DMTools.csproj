@@ -231,11 +231,27 @@
     <Compile Include="Migrations\201806292150237_AddGroupsPlayersAndModifyAbilityModifiers.Designer.cs">
       <DependentUpon>201806292150237_AddGroupsPlayersAndModifyAbilityModifiers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807021436143_MonsterChanges.cs" />
+    <Compile Include="Migrations\201807021436143_MonsterChanges.Designer.cs">
+      <DependentUpon>201807021436143_MonsterChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807021931181_MinorGroupChanges.cs" />
+    <Compile Include="Migrations\201807021931181_MinorGroupChanges.Designer.cs">
+      <DependentUpon>201807021931181_MinorGroupChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807172152235_AddMonsterToAbilityModifiers.cs" />
+    <Compile Include="Migrations\201807172152235_AddMonsterToAbilityModifiers.Designer.cs">
+      <DependentUpon>201807172152235_AddMonsterToAbilityModifiers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807201222133_MoveAbilityModifiersToMonster.cs" />
+    <Compile Include="Migrations\201807201222133_MoveAbilityModifiersToMonster.Designer.cs">
+      <DependentUpon>201807201222133_MoveAbilityModifiersToMonster.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DMToolsContext.cs" />
+    <Compile Include="Models\EncounterStuff\Encounter.cs" />
     <Compile Include="Models\Equipment\Weapon.cs" />
-    <Compile Include="Models\MonsterStuff\AbilityModifiers.cs" />
     <Compile Include="Models\MonsterStuff\Enemy.cs" />
     <Compile Include="Models\Equipment\Equipment.cs" />
     <Compile Include="Models\MonsterStuff\NPC.cs" />
@@ -364,6 +380,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806292150237_AddGroupsPlayersAndModifyAbilityModifiers.resx">
       <DependentUpon>201806292150237_AddGroupsPlayersAndModifyAbilityModifiers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807021436143_MonsterChanges.resx">
+      <DependentUpon>201807021436143_MonsterChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807021931181_MinorGroupChanges.resx">
+      <DependentUpon>201807021931181_MinorGroupChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807172152235_AddMonsterToAbilityModifiers.resx">
+      <DependentUpon>201807172152235_AddMonsterToAbilityModifiers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807201222133_MoveAbilityModifiersToMonster.resx">
+      <DependentUpon>201807201222133_MoveAbilityModifiersToMonster.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

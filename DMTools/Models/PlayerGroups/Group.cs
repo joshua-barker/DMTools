@@ -9,5 +9,6 @@ namespace DMTools.Models
         [DisplayName("Group Name")]
         public string GroupName { get; set; }
         public ICollection<Player> Players { get; set; }
+        public ICollection<Encounter> Encounters { get; set; }
     }
 }

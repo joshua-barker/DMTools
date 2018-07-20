@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DMTools.Models
 {
@@ -18,14 +19,18 @@ namespace DMTools.Models
         public int WisdomModifier { get; set; }
         [DisplayName("Charisma Modifier")]
         public int CharismaModifier { get; set; }
-
+        public int MonsterId { get; set; }
         public static AbilityModifiers CalculateAbilityModifiers(Monster monster)
         {
-            AbilityModifiers modifiers = new AbilityModifiers();
+            AbilityModifiers modifiers;
 
             if (monster.AbilityModifiers != null)
             {
                 modifiers = monster.AbilityModifiers;
+            }
+            else
+            {
+                modifiers = new AbilityModifiers();
             }
 
             modifiers.StrengthModifier = DoTheAbilityMaths(monster.Strength);

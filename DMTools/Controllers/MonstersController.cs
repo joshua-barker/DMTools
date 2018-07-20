@@ -19,8 +19,7 @@ namespace DMTools.Controllers
         public ActionResult Index()
         {
             var monsters = db.Monsters
-                .Include(m => m.AbilityModifiers)
-                .Include(m => m.SavingThrows)
+                    .Include(m => m.SavingThrows)
                     .ToList();
             return View(monsters);
         }
@@ -43,7 +42,9 @@ namespace DMTools.Controllers
         // GET: Monsters/Create
         public ActionResult Create()
         {
-            return View();
+            Monster monster = new Monster();
+
+            return View(monster);
         }
 
         // POST: Monsters/Create
@@ -51,7 +52,7 @@ namespace DMTools.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Description,Backstory,ExperienceForKilling,MaxHealth,CurrentHealth,Level,ArmorClass,Speed,ProficiencyBonus,ChallengeRating,IsLegendary,Strength,Dexterity,Constitution,Intelligence,Wisdom,Charisma,Size,Race,Type,Species,Alignment,AbilityModifiers,SavingThrows,Skills,Senses")] Monster monster)
+        public ActionResult Create(Monster monster)
         {
             if (ModelState.IsValid)
             {

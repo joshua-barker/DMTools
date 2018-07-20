@@ -36,18 +36,18 @@
         @Html.DisplayNameFor(model => model.GroupName)
     </div>
 
-    @foreach (var item in Model)
+    @foreach (var group in Model)
     {
         <div class="grid-panel">
-            <h3>@Html.DisplayFor(modelItem => item.GroupName)</h3>
+            <h3>@Html.DisplayFor(modelItem => group.GroupName)</h3>
             <p>Players:</p>
-            @foreach (var player in item.Players)
+            @foreach (var player in group.Players)
             {
                 <p>@Html.DisplayFor(playerItem => player.Name)</p>
             }
             <p>
-                @Html.ActionLink("Edit", "Edit", new { id = item.GroupId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.GroupId })
+                @Html.ActionLink("Edit", "Edit", new { id = group.GroupId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = group.GroupId })
             </p>    
 
                 

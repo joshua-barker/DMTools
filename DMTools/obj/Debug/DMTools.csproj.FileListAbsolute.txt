@@ -86,3 +86,7 @@ C:\Repos\DMTools\DMTools\obj\Debug\DMTools.Migrations.SecondaryCreate.resources
 C:\Repos\DMTools\DMTools\obj\Debug\DMTools.Migrations.AddProficiencyBonus.resources
 C:\Repos\DMTools\DMTools\obj\Debug\DMTools.Migrations.FleshOutMonstersAndOther.resources
 C:\Repos\DMTools\DMTools\obj\Debug\DMTools.Migrations.AddGroupsPlayersAndModifyAbilityModifiers.resources
+C:\Repos\DMTools\DMTools\obj\Debug\DMTools.Migrations.MonsterChanges.resources
+C:\Repos\DMTools\DMTools\obj\Debug\DMTools.Migrations.MinorGroupChanges.resources
+C:\Repos\DMTools\DMTools\obj\Debug\DMTools.Migrations.AddMonsterToAbilityModifiers.resources
+C:\Repos\DMTools\DMTools\obj\Debug\DMTools.Migrations.MoveAbilityModifiersToMonster.resources

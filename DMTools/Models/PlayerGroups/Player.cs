@@ -12,5 +12,9 @@ namespace DMTools.Models
         [ForeignKey("Character")]
         public int CharacterId { get; set; }
         public Monster Character { get; set; }
+
+        [ForeignKey("Group")]
+        public int GroupId { get; set; }
+        public Group Group { get; set; }
     }
 }

@@ -74,11 +74,11 @@ namespace DMTools.Models
         public static Skills CalculateSkillsModifiers(Monster monster)
         {
             Skills skills = new Skills();
-            int strength = monster.AbilityModifiers.StrengthModifier;
-            int dexterity = monster.AbilityModifiers.DexterityModifier;
-            int intelligence = monster.AbilityModifiers.IntelligenceModifier;
-            int wisdom = monster.AbilityModifiers.WisdomModifier;
-            int charisma = monster.AbilityModifiers.CharismaModifier;
+            int strength = monster.StrengthModifier;
+            int dexterity = monster.DexterityModifier;
+            int intelligence = monster.IntelligenceModifier;
+            int wisdom = monster.WisdomModifier;
+            int charisma = monster.CharismaModifier;
             int proficiency = monster.ProficiencyBonus;
 
             if (monster.Skills != null)
