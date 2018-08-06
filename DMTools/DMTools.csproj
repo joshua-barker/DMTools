@@ -247,6 +247,30 @@
     <Compile Include="Migrations\201807201222133_MoveAbilityModifiersToMonster.Designer.cs">
       <DependentUpon>201807201222133_MoveAbilityModifiersToMonster.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807252114057_TempRemoveSavingThrows.cs" />
+    <Compile Include="Migrations\201807252114057_TempRemoveSavingThrows.Designer.cs">
+      <DependentUpon>201807252114057_TempRemoveSavingThrows.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807252124050_REALLYRemoveSavingThrows.cs" />
+    <Compile Include="Migrations\201807252124050_REALLYRemoveSavingThrows.Designer.cs">
+      <DependentUpon>201807252124050_REALLYRemoveSavingThrows.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807252137540_ReAddSavingThrows.cs" />
+    <Compile Include="Migrations\201807252137540_ReAddSavingThrows.Designer.cs">
+      <DependentUpon>201807252137540_ReAddSavingThrows.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807252144409_TempRemoveSkillsSenses.cs" />
+    <Compile Include="Migrations\201807252144409_TempRemoveSkillsSenses.Designer.cs">
+      <DependentUpon>201807252144409_TempRemoveSkillsSenses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807252146292_FixMonsterRelationships.cs" />
+    <Compile Include="Migrations\201807252146292_FixMonsterRelationships.Designer.cs">
+      <DependentUpon>201807252146292_FixMonsterRelationships.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808062121456_ConsolidateMonsterStats.cs" />
+    <Compile Include="Migrations\201808062121456_ConsolidateMonsterStats.Designer.cs">
+      <DependentUpon>201808062121456_ConsolidateMonsterStats.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DMToolsContext.cs" />
@@ -258,9 +282,6 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MonsterStuff\Monster.cs" />
-    <Compile Include="Models\MonsterStuff\SavingThrows.cs" />
-    <Compile Include="Models\MonsterStuff\Senses.cs" />
-    <Compile Include="Models\MonsterStuff\Skills.cs" />
     <Compile Include="Models\PlayerGroups\Group.cs" />
     <Compile Include="Models\PlayerGroups\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -392,6 +413,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807201222133_MoveAbilityModifiersToMonster.resx">
       <DependentUpon>201807201222133_MoveAbilityModifiersToMonster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807252114057_TempRemoveSavingThrows.resx">
+      <DependentUpon>201807252114057_TempRemoveSavingThrows.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807252124050_REALLYRemoveSavingThrows.resx">
+      <DependentUpon>201807252124050_REALLYRemoveSavingThrows.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807252137540_ReAddSavingThrows.resx">
+      <DependentUpon>201807252137540_ReAddSavingThrows.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807252144409_TempRemoveSkillsSenses.resx">
+      <DependentUpon>201807252144409_TempRemoveSkillsSenses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807252146292_FixMonsterRelationships.resx">
+      <DependentUpon>201807252146292_FixMonsterRelationships.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808062121456_ConsolidateMonsterStats.resx">
+      <DependentUpon>201808062121456_ConsolidateMonsterStats.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -84,6 +84,15 @@
             </div>
         </div>
 
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProficiencyBonus, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ProficiencyBonus, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ProficiencyBonus, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.ChallengeRating, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -190,13 +199,6 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Senses, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Senses, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Senses, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

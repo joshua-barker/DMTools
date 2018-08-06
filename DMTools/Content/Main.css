@@ -84,6 +84,29 @@ textarea {
   .table-details-pane ul {
     list-style-type: square; }
 
+.form-horizontal fieldset {
+  padding: 0.35em 0.625em 0.75em;
+  margin: 0 2px;
+  border: 1px solid #c0c0c0; }
+  .form-horizontal fieldset legend {
+    margin: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 21px;
+    color: #333333;
+    width: auto;
+    border: none; }
+
+.section-header {
+  border-bottom: 1px solid #333333;
+  width: auto;
+  padding: 5px 0px;
+  margin: 5px 5px 15px 20px; }
+
+.edit-group {
+  margin-left: auto !important;
+  margin-right: auto !important; }
+
 .details-closer {
   float: right; }
 
@@ -96,4 +119,8 @@ textarea {
 .header-btn {
   margin-top: 20px;
   margin-bottom: 10px; }
+
+.bottom-btn {
+  margin-top: 20px;
+  margin-left: 5px; }
 

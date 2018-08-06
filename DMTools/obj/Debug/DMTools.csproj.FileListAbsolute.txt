@@ -90,3 +90,9 @@ C:\Repos\DMTools\DMTools\obj\Debug\DMTools.Migrations.MonsterChanges.resources
 C:\Repos\DMTools\DMTools\obj\Debug\DMTools.Migrations.MinorGroupChanges.resources
 C:\Repos\DMTools\DMTools\obj\Debug\DMTools.Migrations.AddMonsterToAbilityModifiers.resources
 C:\Repos\DMTools\DMTools\obj\Debug\DMTools.Migrations.MoveAbilityModifiersToMonster.resources
+C:\Repos\DMTools\DMTools\obj\Debug\DMTools.Migrations.TempRemoveSavingThrows.resources
+C:\Repos\DMTools\DMTools\obj\Debug\DMTools.Migrations.REALLYRemoveSavingThrows.resources
+C:\Repos\DMTools\DMTools\obj\Debug\DMTools.Migrations.ReAddSavingThrows.resources
+C:\Repos\DMTools\DMTools\obj\Debug\DMTools.Migrations.TempRemoveSkillsSenses.resources
+C:\Repos\DMTools\DMTools\obj\Debug\DMTools.Migrations.FixMonsterRelationships.resources
+C:\Repos\DMTools\DMTools\obj\Debug\DMTools.Migrations.ConsolidateMonsterStats.resources

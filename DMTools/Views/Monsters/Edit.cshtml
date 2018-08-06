@@ -4,191 +4,491 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>Edit Monster</h2>
+
+<div class="container">
+    <div class="row">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(m => m.Id)
+                
+                <fieldset>
+                    <legend>Monster Information</legend>
+                    <div class="form-group col-md-6 col-sm-12">
+                        @Html.LabelFor(m => m.Name, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6 col-sm-12">
+                        @Html.LabelFor(m => m.Description, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.TextAreaFor(m => m.Description, 4, 38, null)
+                            @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6 col-sm-12">
+                        @Html.LabelFor(m => m.Backstory, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.TextAreaFor(m => m.Backstory, 4, 38, null)
+                            @Html.ValidationMessageFor(m => m.Backstory, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6 col-sm-12">
+                        @Html.LabelFor(m => m.ExperienceForKilling, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(m => m.ExperienceForKilling, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.ExperienceForKilling, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6 col-sm-12">
+                        @Html.LabelFor(m => m.ChallengeRating, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(m => m.ChallengeRating, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.ChallengeRating, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6 col-sm-12">
+                        @Html.LabelFor(m => m.IsLegendary, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.IsLegendary)
+                                @Html.ValidationMessageFor(m => m.IsLegendary, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6 col-sm-12">
+                        @Html.LabelFor(m => m.Size, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EnumDropDownListFor(m => m.Size, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Size, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6 col-sm-12">
+                        @Html.LabelFor(m => m.Race, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EnumDropDownListFor(m => m.Race, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Race, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6 col-sm-12">
+                        @Html.LabelFor(m => m.Type, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EnumDropDownListFor(m => m.Type, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Type, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6 col-sm-12">
+                        @Html.LabelFor(m => m.Species, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EnumDropDownListFor(m => m.Species, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Species, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6 col-sm-12">
+                        @Html.LabelFor(m => m.Alignment, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EnumDropDownListFor(m => m.Alignment, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Alignment, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Monster Stats</legend>
+                    <div class="form-group col-md-6 col-sm-12">
+                        @Html.LabelFor(m => m.MaxHealth, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(m => m.MaxHealth, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.MaxHealth, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6 col-sm-12">
+                        @Html.LabelFor(m => m.CurrentHealth, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(m => m.CurrentHealth, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.CurrentHealth, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6 col-sm-12">
+                        @Html.LabelFor(m => m.Level, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(m => m.Level, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.Level, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6 col-sm-12">
+                        @Html.LabelFor(m => m.ArmorClass, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(m => m.ArmorClass, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.ArmorClass, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6 col-sm-12">
+                        @Html.LabelFor(m => m.Speed, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(m => m.Speed, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.Speed, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6 col-sm-12">
+                        @Html.LabelFor(m => m.ProficiencyBonus, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(m => m.ProficiencyBonus, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.ProficiencyBonus, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Monster</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
+                    <div class="form-group col-md-6 col-sm-12">
+                        @Html.LabelFor(m => m.Strength, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(m => m.Strength, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.Strength, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="form-group col-md-6 col-sm-12">
+                        @Html.LabelFor(m => m.Dexterity, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(m => m.Dexterity, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.Dexterity, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Health, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Health, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Health, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="form-group col-md-6 col-sm-12">
+                        @Html.LabelFor(m => m.Constitution, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(m => m.Constitution, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.Constitution, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ArmorClass, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ArmorClass, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ArmorClass, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="form-group col-md-6 col-sm-12">
+                        @Html.LabelFor(m => m.Intelligence, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(m => m.Intelligence, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.Intelligence, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Speed, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Speed, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Speed, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="form-group col-md-6 col-sm-12">
+                        @Html.LabelFor(m => m.Wisdom, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(m => m.Wisdom, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.Wisdom, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ChallengeRating, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ChallengeRating, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ChallengeRating, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="form-group col-md-6 col-sm-12">
+                        @Html.LabelFor(m => m.Charisma, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(m => m.Charisma, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.Charisma, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </fieldset> 
+                <fieldset>
+                    <legend>Monster Proficiencies</legend>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.IsLegendary, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.IsLegendary)
-                    @Html.ValidationMessageFor(model => model.IsLegendary, "", new { @class = "text-danger" })
+                    <h4 class="section-header">Saving Throws</h4>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Proficient in Strength Saving Throws</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasStrengthSavingThrow)
+                                @Html.ValidationMessageFor(m => m.HasStrengthSavingThrow, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Proficient in Dexterity Saving Throws</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasDexteritySavingThrow)
+                                @Html.ValidationMessageFor(m => m.HasDexteritySavingThrow, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Proficient in Constitution Saving Throws</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasConstitutionSavingThrow)
+                                @Html.ValidationMessageFor(m => m.HasConstitutionSavingThrow, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Proficient in Intelligence Saving Throws</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasIntelligenceSavingThrow)
+                                @Html.ValidationMessageFor(m => m.HasIntelligenceSavingThrow, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Proficient in Wisdom Saving Throws</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasWisdomSavingThrow)
+                                @Html.ValidationMessageFor(m => m.HasWisdomSavingThrow, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Proficient in Charisma Saving Throws</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasCharismaSavingThrow)
+                                @Html.ValidationMessageFor(m => m.HasCharismaSavingThrow, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="section-header">Skill Proficiencies</h4>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Athletics Proficiency</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasAthleticsProficiency)
+                                @Html.ValidationMessageFor(m => m.HasAthleticsProficiency, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Acrobatics Proficiency</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasAcrobaticsProficiency)
+                                @Html.ValidationMessageFor(m => m.HasAcrobaticsProficiency, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Sleight of Hand Proficiency</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasSleightOfHandProficiency)
+                                @Html.ValidationMessageFor(m => m.HasSleightOfHandProficiency, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Stealth Proficiency</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasStealthProficiency)
+                                @Html.ValidationMessageFor(m => m.HasStealthProficiency, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Arcana Proficiency</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasArcanaProficiency)
+                                @Html.ValidationMessageFor(m => m.HasArcanaProficiency, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">History Proficiency</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasHistoryProficiency)
+                                @Html.ValidationMessageFor(m => m.HasHistoryProficiency, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Investigation Proficiency</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasInvestigationProficiency)
+                                @Html.ValidationMessageFor(m => m.HasInvestigationProficiency, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Nature Proficiency</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasNatureProficiency)
+                                @Html.ValidationMessageFor(m => m.HasNatureProficiency, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Religion Proficiency</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasReligionProficiency)
+                                @Html.ValidationMessageFor(m => m.HasReligionProficiency, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Animal Handling Proficiency</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasAnimalHandlingProficiency)
+                                @Html.ValidationMessageFor(m => m.HasAnimalHandlingProficiency, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Insight Proficiency</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasInsightProficiency)
+                                @Html.ValidationMessageFor(m => m.HasInsightProficiency, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Medicine Proficiency</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasMedicineProficiency)
+                                @Html.ValidationMessageFor(m => m.HasMedicineProficiency, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Perception Proficiency</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasPerceptionProficiency)
+                                @Html.ValidationMessageFor(m => m.HasPerceptionProficiency, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Survival Proficiency</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasSurvialProficiency)
+                                @Html.ValidationMessageFor(m => m.HasSurvialProficiency, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Deception Proficiency</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasDeceptionProficiency)
+                                @Html.ValidationMessageFor(m => m.HasDeceptionProficiency, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Intimidation Proficiency</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasIntimidationProficiency)
+                                @Html.ValidationMessageFor(m => m.HasIntimidationProficiency, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Performance Proficiency</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasPerformanceProficiency)
+                                @Html.ValidationMessageFor(m => m.HasPerformanceProficiency, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Persuasion Proficiency</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasPersuasionProficiency)
+                                @Html.ValidationMessageFor(m => m.HasPersuasionProficiency, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="section-header">Senses</h4>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Blind Sight</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasBlindSight)
+                                @Html.ValidationMessageFor(m => m.HasBlindSight, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Dark Vision</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasDarkVision)
+                                @Html.ValidationMessageFor(m => m.HasDarkVision, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">True Sight</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasTrueSight)
+                                @Html.ValidationMessageFor(m => m.HasTrueSight, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Tremor Sense</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasTremorSense)
+                                @Html.ValidationMessageFor(m => m.HasTremorSense, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-group form-group col-md-6 col-sm-12">
+                        <label class="control-label col-md-9">Magic Sense</label>
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                @Html.EditorFor(m => m.HasMagicSense)
+                                @Html.ValidationMessageFor(m => m.HasMagicSense, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>                            
+
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <input type="submit" value="Save Changes" class="btn btn-primary right bottom-btn" />
+                        @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-default right bottom-btn" })
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Strength, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Strength, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Strength, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Dexterity, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Dexterity, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Dexterity, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Constitution, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Constitution, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Constitution, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Intelligence, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Intelligence, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Intelligence, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Wisdom, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Wisdom, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Wisdom, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Charisma, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Charisma, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Charisma, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Size, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.Size, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Size, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Race, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.Race, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Race, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.Type, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Species, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.Species, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Species, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Alignment, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.Alignment, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Alignment, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SavingThrows, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SavingThrows, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SavingThrows, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Skills, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Skills, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Skills, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Senses, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Senses, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Senses, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
+        }
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {

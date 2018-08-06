@@ -17,8 +17,8 @@ namespace DMTools.UtilityClasses
         public static Monster CalculateMonsterStats(Monster monster)
         {
             monster = Monster.CalculateAbilityModifiers(monster);
-            monster.SavingThrows = SavingThrows.CalculateSavingThrowsModifiers(monster);
-            monster.Skills = Skills.CalculateSkillsModifiers(monster);
+            monster = Monster.CalculateSavingThrowsModifiers(monster);
+            monster = Monster.CalculateSkillsModifiers(monster);
 
             return monster;
         }

@@ -22,10 +22,6 @@ namespace DMTools.Models
         public virtual DbSet<Monster> Monsters { get; set; }
         public DbSet<Equipment> Equipments { get; set; }
 
-        public DbSet<SavingThrows> SavingThrows { get; set; }
-        public DbSet<Senses> Senses { get; set; }
-        public DbSet<Skills> Skills { get; set; }
-
         public DbSet<Group> Groups { get; set; }
         public DbSet<Player> Players { get; set; }
 

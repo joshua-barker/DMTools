@@ -19,8 +19,11 @@ namespace DMTools.Controllers
         public ActionResult Index()
         {
             var monsters = db.Monsters
-                    .Include(m => m.SavingThrows)
-                    .ToList();
+                             //.Include(m => m.SavingThrows)
+                             //.Include(m => m.Skills)
+                             //.Include(m => m.Senses)
+                             .ToList();
+
             return View(monsters);
         }
 
@@ -85,10 +88,11 @@ namespace DMTools.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Health,ArmorClass,Speed,ChallengeRating,IsLegendary,Strength,Dexterity,Constitution,Intelligence,Wisdom,Charisma,Size,Race,Type,Species,Alignment,SavingThrows,Skills,Senses")] Monster monster)
+        public ActionResult Edit(Monster monster)
         {
             if (ModelState.IsValid)
             {
+                MonsterHelper.CalculateMonsterStats(monster);
                 db.Entry(monster).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
